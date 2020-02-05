@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import axios from "axios";
 
 const Login = props => {
+  console.log("props", props)
   const [login, setLogin] = useState({
-    username: "",
+    email: "",
     password: ""
   });
   const handleInput = e => {
@@ -26,14 +27,14 @@ const Login = props => {
   };
   return (
     <form onSubmit={handleLogin}>
-      <div classname="nameContainer">
-      <input
-        type="text"
-        name="username"
-        placeholder="username"
-        value={login.username}
-        onChange={handleInput}
-      />
+      <div className="nameContainer">
+        <input
+          type="text"
+          name="email"
+          placeholder="email"
+          value={login.email}
+          onChange={handleInput}
+        />
       </div>
       <input
         type="password"
