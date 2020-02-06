@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink, withRouter } from "react-router-dom";
+import { NavLink, withRouter, Link } from "react-router-dom";
 
 // TODO Need to update the NavMenu to reflect the correct endpoints, and routing.
 
@@ -12,22 +12,33 @@ const NavMenu = props => {
   if (localStorage.getItem("token")) {
     // We're logged in
     return (
-      <header className="header">
-        <NavLink to="/" className="logo">
-          Symphinity
-        </NavLink>
-        <input className="menu-btn" type="checkbox" id="menu-btn" />
+      <header className="nav_bar">
+      
         <label className="menu-icon" htmlFor="menu-btn">
-          <span className="nav-icon"></span>
+          <div className="logo">
+          <h1>Symphinity</h1>
+          </div>
         </label>
         <ul className="menu">
-          <li>
-            <NavLink to="/review">Review Stories</NavLink>
-          </li>
-          <li>
-            <a name="blah" className="logout" onClick={logOut}>
+         
+          
+            
+          <li className="link">
+            <NavLink  to="/">Home</NavLink>
+          </li> 
+          <li className="link">
+          <NavLink  to="/dashboard" >
+          Dashboard
+        </NavLink>
+        </li >
+          <li className="link">
+            <NavLink  to="/search">Search</NavLink>
+          </li> 
+          {/* TODO Need to get endpoint to Marketing page */}
+          <li className="link">
+            <NavLink  to="/" onClick={logOut}>
               Logout
-            </a>
+            </NavLink>
           </li>
         </ul>
       </header>

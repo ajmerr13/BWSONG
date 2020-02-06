@@ -1,11 +1,10 @@
-
-import axios from 'axios';
+import axios from "axios";
 
 const axiosWithAuth = () => {
-  const token = localStorage.getItem('token');
+  const token = localStorage.getItem("token");
 
   return axios.create({
-    baseURL: 'https://fierce-crag-88546.herokuapp.com/',
+    baseURL: "https://song-suggester4-backend.herokuapp.com",
     headers: {
       Authorization: token
     }

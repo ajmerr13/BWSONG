@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
-
 const Login = props => {
-  console.log("props", props)
+  console.log("props", props);
   const [login, setLogin] = useState({
     email: "",
     password: ""
@@ -17,7 +16,7 @@ const Login = props => {
   const handleLogin = e => {
     e.preventDefault();
     axios
-      .post("https://fierce-crag-88546.herokuapp.com/accounts/login", login)
+      .post("https://song-suggester4-backend.herokuapp.com/accounts/login", login)
       .then(res => {
         console.log(res);
         localStorage.setItem("token", res.data.token);
@@ -26,9 +25,13 @@ const Login = props => {
       .catch(err => console.log(err.message));
   };
   return (
+    <div className="register">
+      <h1>Welcome</h1>
+      <h3>Login</h3>
     <form onSubmit={handleLogin}>
-      <div className="nameContainer">
+      <div>
         <input
+          className="inputContainer"
           type="text"
           name="email"
           placeholder="email"
@@ -36,16 +39,20 @@ const Login = props => {
           onChange={handleInput}
         />
       </div>
-      <input
-        type="password"
-        name="password"
-        placeholder="password"
-        value={login.password}
-        onChange={handleInput}
-      />
-      <button type="submit">Log in</button>
-      <button>Logout</button>
+      <div>
+        <input
+          className="inputContainer"
+          type="password"
+          name="password"
+          placeholder="password"
+          value={login.password}
+          onChange={handleInput}
+        />
+      </div>
+      <button className="buttonOne" type="submit">Log in</button>
+      
     </form>
+    </div>
   );
 };
 export default Login;
